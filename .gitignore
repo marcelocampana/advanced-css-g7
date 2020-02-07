@@ -1,0 +1,5 @@
+*.DS_Store
+style-guide/node_modules
+style-guide/*.css
+style-guide/.cache
+style-guide/build
