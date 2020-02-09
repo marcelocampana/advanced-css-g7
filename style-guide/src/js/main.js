@@ -3,6 +3,7 @@
 	********************/
 //convert rgba color to hex color
 const rbgToHex = function(elem) {
+  //alert('got here');
   if (elem.currentStyle) var bg = elem.currentStyle['background-color'];
   else if (window.getComputedStyle)
     var bg = document.defaultView
