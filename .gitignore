@@ -3,3 +3,7 @@ style-guide/node_modules
 style-guide/*.css
 style-guide/.cache
 style-guide/build
+/resources/
+/style-guide/
+/style-guide.css
+/style-demo.css

@@ -1,0 +1,116 @@
+body{
+	background-color:antiquewhite;
+}
+a{
+	color:white;
+	text-decoration: none;
+}
+ul{
+	list-style:none
+}
+#css-zen-garden{
+	width: 80%;
+	margin:auto;
+	color:white;
+}
+header{
+    
+	background-color: #4AD8FF;
+	margin:0 0 0 5%;
+	padding: 5%;
+}
+.summary{
+	background-color: #4AD8FF;
+	margin:0 0 0 5%;
+	padding: 5%;
+	z-index:1;
+}
+.preamble{
+	position:relative;
+    top:-30px;
+	z-index:-1;
+	background-color: #7F57FF;
+	padding:10% 5% 10% 5%;
+}
+.sidebar{
+
+	background-color: #BC1AF0;
+	padding: 10%;
+}
+
+.page-wrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr 25%;
+	grid-template-rows: 1fr 1fr 1fr;
+	
+	grid-template-areas: 
+		"header header sidebar  "
+		"content content sidebar"
+		"content content ."
+
+}
+.sidebar {
+  position: relative;
+  grid-area: sidebar;
+  height: 1000px;
+  left:-70px;
+}
+.main { 
+	grid-area:content;
+	color:blue;
+}
+.intro{
+	grid-area: header
+}
+.main{
+	display: grid;
+	grid-template-columns: 40% 1fr;
+	grid-template-rows: 30% 50% 5%;
+	grid-template-areas: 
+		"a b"
+		"c d"
+		"f f"		
+}
+.explanation{
+	position:relative;
+	top:-20%;
+	left: 10%;
+	grid-area: a ;
+	background-color: white;
+	margin:0 0 0 5%;
+	padding: 10%;
+	z-index: 1;
+}
+.participation{
+	grid-area: b ;
+	position:relative;
+	top:-11%;
+	height: 300px;
+	background-color: #4AD8FF;
+	color:white;
+	padding: 10%;
+}
+.benefits{
+	position:relative;
+	top:-90px;
+	left: 5%;
+	width: 70%;
+	z-index:1;
+	background-color: white;
+	color:blue;
+	padding: 10%;
+	margin: 0 10% 0 10%;
+}
+.requirements{
+	position:relative;
+	z-index:-1;
+	top:-150px;
+	background-color: #4371E8;
+	color: white;
+	padding: 20%;
+}
+footer{
+	grid-area: f;
+	background-color: #BC1AF0;
+	padding: 3% 0 0 10%;
+}
