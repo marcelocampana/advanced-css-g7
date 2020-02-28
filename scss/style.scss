@@ -1,116 +1,161 @@
+//variables
+//sizes
+$padding-box:9em 4em 9em 4em;
+$main-margin-left:30%;
+//colors
+$light-color:white;
+$primary-background-color:#4AD8FF;
+$secondary-background-color:#BC1AF0;
+$third-background-color:#7F57FF;
+$fourth-background-color:#4371E8;
+
+//color text 
+$primary-color-text: white;
+$secondary-color-text:#4371E8;
+
+//utilities
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
 body{
-	background-color:antiquewhite;
+	color:$primary-color-text;
 }
 a{
-	color:white;
+	color:$primary-color-text;
 	text-decoration: none;
 }
 ul{
 	list-style:none
 }
-#css-zen-garden{
-	width: 80%;
-	margin:auto;
-	color:white;
-}
-header{
-    
-	background-color: #4AD8FF;
-	margin:0 0 0 5%;
-	padding: 5%;
-}
-.summary{
-	background-color: #4AD8FF;
-	margin:0 0 0 5%;
-	padding: 5%;
-	z-index:1;
-}
-.preamble{
-	position:relative;
-    top:-30px;
-	z-index:-1;
-	background-color: #7F57FF;
-	padding:10% 5% 10% 5%;
-}
-.sidebar{
-
-	background-color: #BC1AF0;
-	padding: 10%;
-}
-
-.page-wrapper{
+.intro{
 	display: grid;
-	grid-template-columns: 1fr 1fr 25%;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 10% 65% 15% 10%;
+	grid-template-rows: 250px 305px 405px;
 	
 	grid-template-areas: 
-		"header header sidebar  "
-		"content content sidebar"
-		"content content ."
+		". header . ."
+	    ". summary . ."
+		"preamble preamble . .";
+	height: 915px;
+	background-image: url("img/abstract.jpg");	
+}
+header{
+	grid-area: header;
+	padding:$padding-box;
+	background-color: $primary-background-color;
 
 }
-.sidebar {
-  position: relative;
-  grid-area: sidebar;
-  height: 1000px;
-  left:-70px;
+.summary{
+    grid-area: summary;
+	padding:$padding-box;
+	background-color: $primary-background-color;
+	z-index:2;
 }
-.main { 
-	grid-area:content;
-	color:blue;
-}
-.intro{
-	grid-area: header
+.preamble{
+	grid-area: preamble;
+	position: relative;
+	margin-top:-46px;
+	padding:$padding-box;
+	background-color: $third-background-color;
+	z-index:1;
 }
 .main{
 	display: grid;
-	grid-template-columns: 40% 1fr;
-	grid-template-rows: 30% 50% 5%;
+	grid-template-columns: 35% 65%;
+	grid-template-rows: 530px 980px 176px;	
 	grid-template-areas: 
-		"a b"
-		"c d"
-		"f f"		
+		"explanation participation"
+		"benefits requirements"
+		"footer footer";
+	background-image: url("img/face.jpg");
 }
 .explanation{
-	position:relative;
-	top:-20%;
-	left: 10%;
-	grid-area: a ;
-	background-color: white;
-	margin:0 0 0 5%;
-	padding: 10%;
-	z-index: 1;
+	grid-area:explanation;
+	margin-top:-28px;
+	margin-left:$main-margin-left;
+	min-width:410px;
+	min-height:678px;
+	padding:$padding-box;
+    z-index:1;
+	color:$secondary-color-text;
+	background-color:$light-color;	
 }
 .participation{
-	grid-area: b ;
-	position:relative;
-	top:-11%;
-	height: 300px;
-	background-color: #4AD8FF;
-	color:white;
-	padding: 10%;
+	grid-area:participation;
+	max-width: 74.5%;
+	min-height:534px;
+	padding:$padding-box;
+	background-color:$primary-background-color;	
 }
 .benefits{
-	position:relative;
-	top:-90px;
-	left: 5%;
-	width: 70%;
-	z-index:1;
-	background-color: white;
-	color:blue;
-	padding: 10%;
-	margin: 0 10% 0 10%;
+	margin-top:189px;
+	min-width: 385px;
+	min-height: 841px;
+	margin-left: $main-margin-left;
+	padding: $padding-box;
+	z-index: 2;
+	background-color:$light-color;
+	color:$secondary-color-text;
 }
 .requirements{
-	position:relative;
-	z-index:-1;
-	top:-150px;
-	background-color: #4371E8;
-	color: white;
-	padding: 20%;
+	
+	max-width: 74.5%;
+	background-color: $fourth-background-color;
+	padding: $padding-box;
 }
 footer{
-	grid-area: f;
-	background-color: #BC1AF0;
+	grid-area: footer;
+	margin-top:50px;
+	min-height: 135px;
+	background-color: $secondary-background-color;
 	padding: 3% 0 0 10%;
+}
+//menu sidebar
+.sidebar{
+	position:absolute;
+	top:0;
+	width: 100%;
+	display: grid;
+	grid-template-columns:70% 20% 10%;
+	
+	
+}
+.wrapper{
+	grid-column-start: 2;
+	z-index: 3;
+}
+.design-selection, .design-archives, .zen-resources{
+	padding:10% 15% 0  15%;
+	margin-bottom: 25px;
+}
+.design-selection{
+	height: 529px;
+	background-color: $secondary-background-color;
+}
+.design-archives{
+	height: 173px;
+	background-color: $secondary-background-color;
+}
+.zen-resources{
+	height: 318px;
+	background-color: $secondary-background-color;	
+}
+
+@media screen and (max-width: 480px) {
+.main{
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 530px 530px 530px 176px;	
+	grid-template-areas: 
+		"explanation"
+		"participation"
+		"benefits" 
+		"requirements"
+		"footer";
+
+}	
 }
