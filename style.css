@@ -40,7 +40,7 @@ header {
 
 .explanation {
   grid-area: explanation;
-  min-height: 678px;
+  min-height:678px;
   padding: 9em 4em 9em 4em;
   color: #4371E8;
   background-color: white; }
