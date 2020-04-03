@@ -1,342 +1,408 @@
-//variables
+//Zen CSS Garden SCSS Styles Ver 1.0
+//By Frank Desjardins and Marcelo Campaña
+//Advanced CSS - BYU Idaho 
+
+
 //sizes
-$padding-box:9em 4em 9em 4em;
+
+$padding-box:1px;
 $main-margin-left:30%;
-//colors
+
+//colors variables
+
 $light-color:white;
 $primary-background-color:#4AD8FF;
 $secondary-background-color:#BC1AF0;
 $third-background-color:#7F57FF;
 $fourth-background-color:#4371E8;
 
-//color text 
+//color text variables
+
 $primary-color-text: white;
-$secondary-color-text:#4371E8;
+$secondary-color-text:$fourth-background-color;
+
+//fonts from google fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Noto+Serif:wght@700&display=swap');
 
 //utilities
+
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; 
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
-body{
-	color:$primary-color-text;
-}
-a{
-	color:$primary-color-text;
-	text-decoration: none;
-}
-ul{
-	list-style:none
-}
-.intro{
-	display: grid;
-	background-image: url("img/abstract.jpg");	
+
+//sections
+
+body {
+	color: $primary-color-text;
+	font-family: 'Lato', sans-serif;
+    font-size: 1.0625em
+    
 }
 header{
+	position: relative;
+}
+
+//titles
+
+h2,h3,h4,h5,h6{
+	font-family: 'Noto Serif', serif;
+	padding-bottom: 15px;
+}
+h1{
+	position:absolute;
+	left: 0px;
+	top:20px;
+	background-color:$fourth-background-color;
+	width: 195px;
+	padding: 8px;
+	font-size: 1.175em;
+	text-transform: uppercase;	
+}
+header h2{
+	font-size: 4.118em;
+	margin-top:60px;
+	padding: 0 40% 120px 6%;
+}
+
+//content layouts
+
+#zen-summary{
+    @media screen and (min-width:1366px) {
+	padding: 80px 30% 120px 6%;
+	}
+	padding: 80px 8% 120px 6%;
+}
+#zen-summary p{
+		text-transform: uppercase;
+	    &:nth-child(2n) {
+		  margin-top:15px;
+		}
+}
+#zen-preamble{
+	padding:120px 8% 120px 18%;
+}
+#zen-explanation{	
+	padding:80px 10% 0 10%;
+}
+#zen-benefits{	
+	padding:80px 10% 0 10%;
+}
+#zen-participation{	
+	padding:120px 10% 120px 16%;
+	@media screen and (min-width:1366px) {
+	padding:120px 10% 120px 10%;	
+	}
+}
+#zen-requirements{
+		  & p:last-child {
+		    	text-transform: uppercase;
+			    margin-top:30px;
+		}
+	padding:120px 10% 120px 16%;
+	@media screen and (min-width:1366px) {
+	padding:120px 10% 120px 10%;	
+	}
+}
+p{  
+	line-height: 1.5;
+}
+a {
+	color: $primary-color-text;
+	text-decoration:underline;
+}
+
+//nav 
+
+ul {
+	list-style: none
+}
+.design-selection li, .design-archives li, .zen-resources li{
+	margin-bottom: 12px;	
+}
+li a{
+	text-decoration-line:none;	
+	&:hover{
+		text-decoration: underline
+	}
+}
+h3.select, h3.archives, h3.resources{
+	text-align: center;
+	background-color:$fourth-background-color;
+	width: 195px;
+	padding: 8px;
+	margin-bottom: 20px;
+}
+
+//layout
+
+.intro {
+	display: grid;
+	background-image: url("img/abstract.jpg");
+}
+
+header {
 	grid-area: header;
-	padding:$padding-box;
+	padding: $padding-box;
 	background-color: $primary-background-color;
-
 }
-.summary{
-    grid-area: summary;
-	padding:$padding-box;
+.summary {
+	grid-area: summary;
+	padding: $padding-box;
 	background-color: $primary-background-color;
-
 }
-.preamble{
+.preamble {
 	grid-area: preamble;
-	padding:$padding-box;
+	padding: $padding-box;
 	background-color: $third-background-color;
 }
-.main{
+.main {
 	display: grid;
-	background-image: url("img/face.jpg");	
+	background-image: url("img/face.jpg");
 }
-.explanation{
-	grid-area:explanation;
-	min-height:678px;
-	padding:$padding-box;
-	color:$secondary-color-text;
-	background-color:$light-color;	
+.explanation {
+	grid-area: explanation;
+	min-height: 678px;
+	color: $secondary-color-text;
+	background-color: $light-color;
 }
-.participation{
-	grid-area:participation;
-	min-height:534px;
-	padding:$padding-box;
-	background-color:$primary-background-color;	
+.participation {
+	grid-area: participation;
+	min-height: 534px;
+	background-color: $primary-background-color;
 }
-.benefits{
-	grid-area:benefits;
+.benefits {
+	grid-area: benefits;
 	min-height: 841px;
-	padding: $padding-box;
-	background-color:$light-color;
-	color:$secondary-color-text;
+	background-color: $light-color;
+	color: $secondary-color-text;
 }
-.requirements{
-	grid-area:requirements;
+.requirements {
+	grid-area: requirements;
 	background-color: $fourth-background-color;
-	padding: $padding-box;
 }
-footer{
+footer {
 	grid-area: footer;
 	min-height: 135px;
 	background-color: $secondary-background-color;
 }
 
 //menu sidebar
-.sidebar{
-	position:absolute;
-	width: 100%;
-	display: grid;	
-}
-.wrapper{
-}
-.design-selection, .design-archives, .zen-resources{
-}
-.design-selection{
-	background-color: $secondary-background-color;
-}
-.design-archives{
-	background-color: $secondary-background-color;
-}
-.zen-resources{
-	background-color: $secondary-background-color;	
-}
-@media screen and (min-width:1200px){
 
-	.intro{
+.sidebar {
+	position: absolute;
+	width: 100%;
+	display: grid;
+}
+.design-selection {
+	background-color: $secondary-background-color;
+}
+
+.design-archives {
+	background-color: $secondary-background-color;
+}
+.zen-resources {
+	background-color: $secondary-background-color;
+}
+
+//lg size layout
+
+@media screen and (min-width:1280px) {
+
+	.intro {
 		grid-template-columns: 10% 65% 15% 10%;
 		grid-template-rows: 250px 305px 405px;
-		grid-template-areas: 
+		grid-template-areas:
 			". header . ."
 			". summary . ."
 			"preamble preamble . .";
 		height: 915px;
 	}
-	header{
-
+	.summary {
+		z-index: 2;
 	}
-	.summary{
-		z-index:2;
+	.preamble {
+		margin-top: -46px;
+		z-index: 1;
 	}
-	.preamble{
-		margin-top:-46px;
-		z-index:1;
-	}
-	.main{
+	.main {
 		grid-template-columns: 35% 65%;
-		grid-template-rows: 530px 980px 176px;	
-		grid-template-areas: 
+		grid-template-rows: 530px 980px 176px;
+		grid-template-areas:
 			"explanation participation"
 			"benefits requirements"
 			"footer footer";
 	}
-	.explanation{
-		margin-top:-28px;
-		margin-left:$main-margin-left;
-		min-width:410px;
-		min-height:678px;
-		z-index:1;	
+
+	.explanation {
+		margin-top: -28px;
+		margin-left: $main-margin-left;
+		min-width: 410px;
+		min-height: 678px;
+		z-index: 1;
 	}
-	.participation{
-		grid-area:participation;
-		max-width: 74.5%;
-		min-height:534px;
-		padding-right: 20%;
-		padding-left: 20%;
+	.participation {
+		grid-area: participation;
+		max-width: 95%;
+		min-height: 534px;
 	}
-	.benefits{
-		margin-top:189px;
-		margin-left:$main-margin-left;
+	.benefits {
+		margin-top: 189px;
+		margin-left: $main-margin-left;
 		min-width: 385px;
 		min-height: 841px;
 		z-index: 2;
 	}
-	.requirements{	
-		max-width: 74.5%;
-		padding-right: 20%;
-		padding-left: 20%;
+	.requirements {
+		max-width: 95%;	
 	}
-	footer{
-		margin-top:50px;
+	footer {
+		margin-top: 50px;
 		min-height: 135px;
 		padding: 3% 0 0 10%;
 	}
-	//menu sidebar
-	.sidebar{
-		position:absolute;
-		top:0;
+	
+	//nav sidebar
+	.sidebar {
+		position: absolute;
+		top: 0;
 		width: 100%;
-		grid-template-columns:70% 20% 10%;
+		grid-template-columns: 70% 20% 10%;
 	}
-	.wrapper{
+	.wrapper {
 		grid-column-start: 2;
 		z-index: 3;
 	}
-	.design-selection, .design-archives, .zen-resources{
-		padding:10% 15% 0  15%;
+	.design-selection,
+	.design-archives,
+	.zen-resources {
+		padding: 10% 15% 0 15%;
 		margin-bottom: 25px;
 	}
-	.design-selection{
+	.design-selection {
 		height: 529px;
 	}
-	.design-archives{
+	.design-archives {
 		height: 173px;
 	}
-	.zen-resources{
-		height: 318px;	
+	.zen-resources {
+		height: 318px;
 	}
 }
-@media (min-width: 768px)  and (max-width:1199px){
-	.main{
+
+//sm and md lsize layout
+
+@media screen and (max-width: 1279.8px) {
+	.main {
 		grid-template-columns: 100%;
-		grid-template-rows: 520px 1fr 520px 1fr 176px;	
-		grid-template-areas: 
+		grid-template-rows: 1fr 1fr 0.7fr 1.8fr 80px;
+		grid-template-areas:
 			"explanation"
 			"participation"
-			"benefits" 
+			"benefits"
 			"requirements"
 			"footer";
-
 	}
-	.explanation{
-		width:90%;
+	.explanation {
+		width: 90%;
 		margin: auto;
+		min-height: 300px;
 	}
-	.participation{
-		width:90%;
+	.participation {
+		width: 90%;
 		margin: auto;
+		min-height: 300px;
 	}
-	.benefits{
-		width:90%;
+	.benefits {
+		width: 90%;
 		margin: auto;
+		min-height: 200px;
 	}
-	.requirements{
-		width:90%;
+	.requirements {
+		width: 90%;
 		margin: auto;
+		min-height: 500px;
 	}
-	footer{
+	footer {
 		padding: 3% 0 0 10%;
 	}
-	.intro{
-		grid-template-columns: 10% 65% 15% 10%;
-		grid-template-rows: 250px 305px 405px;
-		grid-template-areas: 
-			". header . ."
-			". summary . ."
-			"preamble preamble . .";
-		height: 915px;
-	}
-	.summary{
-		z-index:2;
-	}
-	.preamble{
-		margin-top:-46px;
-		z-index:1;
-	}
-	//menu sidebar
-	.sidebar{
-		position:absolute;
-		top:0;
-		width: 100%;
-		grid-template-columns:70% 20% 10%;
-	}
-	.wrapper{
-		grid-column-start: 2;
-		z-index: 3;
-	}
-	.design-selection, .design-archives, .zen-resources{
-		padding:10% 15% 0  15%;
-		margin-bottom: 25px;
-	}
-	.design-selection{
-		height: 529px;
-	}
-	.design-archives{
-		height: 173px;
-	}
-	.zen-resources{
-		height: 318px;	
-	}
-}
-@media screen and (max-width: 767px) {
-	.main{
+	.intro {
 		grid-template-columns: 100%;
-		grid-template-rows: 520px 1fr 520px 1fr 176px;	
-		grid-template-areas: 
-			"explanation"
-			"participation"
-			"benefits" 
-			"requirements"
-			"footer";
-
-	}
-	.explanation{
-		width:90%;
-		margin:auto;
-	}
-	.participation{
-		width:90%;
-		margin:auto;
-	}
-	.benefits{
-		width:90%;
-		margin:auto;
-	}
-	.requirements{
-		width:90%;
-		margin: auto;
-	}
-	footer{
-		padding: 3% 0 0 10%;
-	}
-	.intro{
-		grid-template-columns: 100%;
-		grid-template-rows: 250px 305px 405px;
-		grid-template-areas: 
+		grid-template-rows: 250px 0.5fr 1fr;
+		grid-template-areas:
 			"header"
 			"summary"
 			"preamble";
 	}
-	header{
-		width:90%;
-		margin: auto;
+	header {
+		width: 90%;
+		 margin:0 auto 0 auto ;
+		& h2{
+		font-size: 2.5em;
+		margin-top:60px;
+        padding:30px 5% 70px 5%;
+		}
+    }
+	.summary {
+		width: 90%;
+	    margin:0 auto 0 auto ;
 	}
-	.summary{
-		width:90%;
-		margin: auto;
+	.preamble {
+		width: 90%;
+		margin:0 auto 0 auto ;	
 	}
-	.preamble{
-		width:90%;
-		margin: auto;
+	#zen-summary{
+		padding:60px 5% 60px 5%;
 	}
+	#zen-preamble{
+		padding:30px 5% 60px 5%;
+	}
+	#zen-explanation{
+		padding:50px 5% 50px 5%;
+	}
+	#zen-benefits{
+		padding:50px 5% 50px 5%;
+}
+	#zen-participation{		
+		padding:50px 5% 50px 5%;
+	}
+	#zen-requirements{
+		padding:50px 5% 50px 5%;
+	}
+
 	//menu sidebar
-	.sidebar{
+	
+	.sidebar {
 		display: grid;
-		grid-template-columns:100%;
-        grid-template-rows:50% 50%;
-		grid-area: 
+		grid-template-columns: 100%;
+		grid-template-rows:50% 20% 30%;
+		grid-area:
 			"menu1"
 			"menu2"
 			"menu3"
 	}
-	.wrapper{
-        max-height: 600px;
+	.wrapper {
+		max-height: 600px;
 	}
-	.design-selection, .design-archives, .zen-resources{
-		padding:10% 15% 10% 15%;
+	.design-selection,
+	.design-archives,
+	.zen-resources {
+		padding: 3% 10% 3% 10%;
 	}
-	.design-selection{
+	.design-selection {
 		grid-area: menu1;
+		min-height: 200px;
 	}
-	.design-archives{
+	.design-archives {
 		grid-area: menu2;
+		min-height: 100px;
 	}
-	.zen-resources{
+	.zen-resources {
 		grid-area: menu3;
+		min-height: 200px;
 	}
 }
